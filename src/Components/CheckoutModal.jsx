@@ -51,11 +51,11 @@ const CheckoutModal = ({ isOpen, onClose, product }) => {
 
     const orderData = {
       ...formData,
-      product_id: product.id,
-      product_name: product.name,
-      quantity: product.quantity,
-      total_price: product.price * product.quantity,
-      order_date: new Date().toISOString(),
+      // product_id: product.id,
+      // product_name: product.name,
+      // quantity: product.quantity,
+      // total_price: product.price * product.quantity,
+      // order_date: new Date().toISOString(),
     };
 
     const { success } = await saveOrder(orderData);

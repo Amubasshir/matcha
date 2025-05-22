@@ -18,6 +18,8 @@ export const SupabaseProvider = ({ children }) => {
   }, []);
 
   const saveOrder = async (orderData) => {
+    delete orderData.order_date;
+    delete orderData.product_id;
     if (!supabase) {
       return { success: false, error: "Supabase client not initialized" };
     }
@@ -25,8 +27,8 @@ export const SupabaseProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const { data, error } = await supabase
-        .from("orders")
-        .insert([orderData])
+        .from("user_checkout_forms")
+        .insert(orderData)
         .select();
 
       if (error) throw error;
