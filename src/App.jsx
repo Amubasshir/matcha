@@ -1,4 +1,3 @@
-import Navbar from "./components/Navbar";
 import ProductDetail from "./components/ProductDetail";
 import { CartProvider } from "./context/CartContext";
 import Footer from "./components/Footer";
@@ -9,6 +8,8 @@ import ReviewsSection from "./Components/ReviewSection";
 import MoreMatcha from "./Components/MoreMatcha";
 import MatchaFeatures from "./Components/MatchaFeature";
 import HowItWorks from "./Components/HowItWorks";
+import Navbar from "./Components/Navbar";
+import HowWorks from "./Components/HowWorks";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <ProductDetail />
             <About />
             <ReviewsSection />
+            <HowWorks />
             <MoreMatcha />
             <MatchaFeatures />
             <HowItWorks />

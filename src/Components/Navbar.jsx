@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-30 w-full">
       {/* Top banner */}
-      <div className="bg-teal-700 text-white text-center py-2 text-sm font-medium">
+      <div className="top-banner text-white text-center py-2 text-sm font-medium">
         FREE UK SHIPPING £35+
       </div>
 
@@ -114,46 +114,28 @@ const Navbar = () => {
       <div className="bg-white border-t border-b border-gray-200 shadow-sm">
         <div className="container-custom mx-auto">
           <div className="hidden lg:flex items-center justify-center space-x-8 py-2">
-            <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2"
-            >
+            <a href="#" className="navbar-style">
               Original Matcha
             </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2"
-            >
+            <a href="#" className="navbar-style">
               Flavoured
             </a>
             <a
               href="#"
-              className="text-sm font-medium text-teal-700 border-b-2 border-teal-600 px-3 py-2"
+              className=" border-b-2 border-teal-600 navbar-style text-[#035718]"
             >
               Lattes
             </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2"
-            >
+            <a href="#" className="navbar-style">
               Pods
             </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2"
-            >
+            <a href="#" className="navbar-style">
               Energy Drinks
             </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2"
-            >
+            <a href="#" className="navbar-style">
               Bundles
             </a>
-            <a
-              href="#"
-              className="text-sm font-medium text-gray-700 hover:text-teal-600 transition-colors px-3 py-2"
-            >
+            <a href="#" className="navbar-style">
               Wholesale
             </a>
           </div>
@@ -164,52 +146,28 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-white absolute w-full shadow-lg z-50 animate-fade-in">
           <div className="py-2 space-y-1">
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Original Matcha
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Flavoured
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-teal-700 bg-gray-50"
-            >
+            <a href="#" className="navbar-mobileStyle text-[#035718]">
               Lattes
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Pods
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Energy Drinks
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Bundles
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Wholesale
             </a>
-            <a
-              href="#"
-              className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
-            >
+            <a href="#" className="navbar-mobileStyle">
               Account
             </a>
           </div>

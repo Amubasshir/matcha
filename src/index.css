@@ -73,13 +73,22 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none;
+    @apply px-4 py-1 rounded-lg font-medium transition-all duration-200 focus:outline-none;
   }
   
   .btn-primary {
-    @apply bg-teal-700 text-white hover:bg-teal-800 shadow-sm;
+    @apply bg-[#035718] text-white hover:bg-[#459843] shadow-sm;
   }
-  
+  .top-banner{
+    @apply bg-[#035718]
+  }
+ .navbar-style {
+  @apply text-gray-700 transition-colors px-3 py-2 text-sm font-medium hover:text-[#459843];
+}
+ .navbar-mobileStyle {
+  @apply block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100
+}
+ 
   .btn-secondary {
     @apply bg-teal-100 text-teal-900 hover:bg-teal-200;
   }
@@ -127,7 +136,7 @@
 }
 
 .ribbon {
-  @apply absolute top-0 right-0 bg-teal-600 text-white px-3 py-1 text-xs uppercase font-bold tracking-wider transform;
+  @apply absolute top-0 right-0 bg-[#459843] text-white px-3 py-1 text-xs uppercase font-bold tracking-wider transform;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
 }
 
