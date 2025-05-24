@@ -95,7 +95,7 @@ const ReviewsSection = () => {
       >
         {reviews.map((review) => (
           <SwiperSlide key={review.id}>
-            <Card className="h-full flex flex-col justify-between p-6 rounded-xl shadow-md bg-opacity-25 min-h-[320px]">
+            <Card className="h-full flex flex-col justify-between p-6 pb-0 rounded-xl shadow-md bg-opacity-25 min-h-[190px]">
               <CardContent className="flex flex-col justify-between h-full text-center">
                 <div>
                   <img
@@ -130,9 +130,7 @@ const ReviewsSection = () => {
         ))}
       </Swiper>
       <div className="text-center mt-4">
-        <button className=" btn btn-primary">
-          Be the first to write a review!
-        </button>
+        <button className=" btn btn-primary">Write a review!</button>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import image1 from "../assets/lovable-uploads/pizza-3010062_1280.jpg";
+import image1 from "../assets/lovable-uploads/3.png";
 import { ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 const HowWorks = () => {
@@ -31,12 +31,16 @@ const HowWorks = () => {
               key={index}
               className={`flex flex-col md:flex-row ${
                 isImageRight ? "md:flex-row-reverse" : ""
-              } items-start gap-8 mb-20 animate-fade-in`}
+              }  items-center gap-8 mb-20 animate-fade-in`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="w-full md:w-1/2">
-                <div className=" max-w-md mx-auto flex items-center justify-center shadow-lg">
-                  <img src={step?.image} alt={`step ${index + 1}`} />
+                <div className=" max-w-md mx-auto flex items-center justify-center ">
+                  <img
+                    className="h-72"
+                    src={step?.image}
+                    alt={`step ${index + 1}`}
+                  />
                 </div>
               </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Search, ShoppingBag, Menu, X, Leaf } from "lucide-react";
 import { useCart } from "../context/CartContext";
-
+import logo from "../assets/lovable-uploads/DirZuliebe Logo.png";
 const Navbar = () => {
   const { getTotalItems } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,11 +48,15 @@ const Navbar = () => {
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
-              <a href="#" className="flex items-center">
-                <Leaf className="h-8 w-8 text-teal-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900">
-                  Perfect Matcha
-                </span>
+              <a href="#" className="flex items-center space-x-2">
+                {/* Optional Icon */}
+                {/* <Leaf className="h-6 w-6 text-teal-600 block md:hidden" /> */}
+                {/* Responsive Logo */}
+                <img
+                  src={logo}
+                  alt="Perfect Matcha Logo"
+                  className="h-8 md:h-10 w-auto object-contain"
+                />
               </a>
             </div>
 

@@ -3,7 +3,10 @@ import { Star, Plus, Minus, Heart, Share2 } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import CheckoutModal from "./CheckoutModal";
 import toast from "react-hot-toast";
-
+import image1 from "../assets/lovable-uploads/1.png";
+import image2 from "../assets/lovable-uploads/2.png";
+import image3 from "../assets/lovable-uploads/3.png";
+import SuccessModal from "./SuccessModal";
 const PRODUCT = {
   id: 1,
   name: "Strawberry Oat Matcha Latte",
@@ -13,11 +16,15 @@ const PRODUCT = {
   details:
     "Naturally sweetened with agave, it contains no refined sugar, artificial sweeteners, or synthetic caffeine.",
   additionalInfo: "12 cans per case",
-  image:
-    "https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  image: image1,
+  // "https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   thumbnails: [
-    "https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/5946630/pexels-photo-5946630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    // "https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+
+    image1,
+    image2,
+    image3,
+    // "https://images.pexels.com/photos/5946630/pexels-photo-5946630.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     // "https://images.pexels.com/photos/6100253/pexels-photo-6100253.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   ],
   rating: 4.8,
@@ -37,6 +44,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(PRODUCT.image);
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () =>
@@ -165,7 +173,7 @@ const ProductDetail = () => {
               </div>
               <button
                 onClick={handleAddToCart}
-                className="btn btn-primary py-3 px-8 flex-grow flex items-center justify-center space-x-2"
+                className="btn btn-primary py-2 md:py-3 px-3 md:px-8 flex-grow flex items-center justify-center space-x-2 sm:text-base text-sm"
               >
                 <span>Add to Cart</span>
                 <ShoppingBag className="w-5 h-5" />
@@ -248,6 +256,15 @@ const ProductDetail = () => {
             price: PRODUCT.price,
             image: PRODUCT.image,
             quantity,
+          }}
+          setShowSuccessModal={setShowSuccessModal}
+        />
+      )}
+      {showSuccessModal && (
+        <SuccessModal
+          isOpen={showSuccessModal}
+          onClose={() => {
+            setShowSuccessModal(false);
           }}
         />
       )}

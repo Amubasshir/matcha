@@ -1,15 +1,16 @@
 import React from "react";
 import { Facebook, Twitter, Instagram, Youtube, Leaf } from "lucide-react";
-
+import logo from "../assets/lovable-uploads/DirZuliebe Logo.png";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[#035718] text-white">
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <Leaf className="h-6 w-6 text-teal-400" />
-              <span className="ml-2 text-xl font-bold">Perfect Matcha</span>
+              {/* <Leaf className="h-6 w-6 text-teal-400" /> */}
+              <img src={logo} width={80} alt="" />
+              {/* <span className="ml-2 text-xl font-bold">Perfect Matcha</span> */}
             </div>
             <p className="text-gray-400 mb-4">
               Premium matcha products for health-conscious individuals.
@@ -44,7 +45,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-medium mb-4">Shop</h3>
+            <h3 className="text-lg font-medium mb-4 text-white">Shop</h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -98,7 +99,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-medium mb-4">Information</h3>
+            <h3 className="text-lg font-medium text-white mb-4">Information</h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -152,7 +153,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-medium mb-4">Customer Service</h3>
+            <h3 className="text-lg font-medium text-white mb-4">
+              Customer Service
+            </h3>
             <ul className="space-y-2">
               <li>
                 <a
@@ -206,7 +209,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-500 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Perfect Matcha. All rights
             reserved.

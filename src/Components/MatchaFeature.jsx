@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import matchaImage from "../assets/lovable-uploads/pexels-roman-odintsov-5836769.jpg";
+import matchaImage from "../assets/lovable-uploads/school matcha drink.png";
 const MatchaFeatures = () => {
   return (
     <section className="py-16 bg-white relative overflow-hidden">

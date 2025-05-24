@@ -5,12 +5,15 @@ const SuccessModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div
+      className="modal-overlay fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      onClick={onClose}
+    >
       <div
-        className="modal-container max-w-md"
+        className="modal-container bg-white rounded-lg shadow-lg relative max-w-md w-full"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close button */}
+        {/* Close (X) button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 transition-colors"
@@ -29,16 +32,17 @@ const SuccessModal = ({ isOpen, onClose }) => {
           </h2>
 
           <p className="text-gray-600 mb-6">
-            Your order has been received successfully. We'll notify you when
-            your order ships.
+            You've been added to our waitlist! Thank you for your interest in
+            Perfect Matcha Latte. We'll notify you as soon as we launch!
           </p>
 
           <p className="text-sm text-gray-500 mb-6">
             Check your email inbox for a confirmation message.
           </p>
 
-          <button onClick={onClose} className="btn btn-primary w-full">
-            Continue Shopping
+          {/* Close Button */}
+          <button onClick={onClose} className="btn btn-primary w-1/4">
+            Close
           </button>
         </div>
       </div>

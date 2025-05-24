@@ -3,7 +3,7 @@ import { X } from "lucide-react";
 import SuccessModal from "./SuccessModal";
 import { useSupabase } from "../Context/supabaeContext";
 
-const CheckoutModal = ({ isOpen, onClose, product }) => {
+const CheckoutModal = ({ isOpen, onClose, product, setShowSuccessModal }) => {
   const { saveOrder, isLoading } = useSupabase();
   const [formData, setFormData] = useState({
     fullname: "",
@@ -14,8 +14,6 @@ const CheckoutModal = ({ isOpen, onClose, product }) => {
     country: "",
   });
   const [errors, setErrors] = useState({});
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-
   if (!isOpen) return null;
 
   const handleChange = (e) => {
@@ -60,7 +58,23 @@ const CheckoutModal = ({ isOpen, onClose, product }) => {
 
     const { success } = await saveOrder(orderData);
     if (success) {
+      // Step 1: Reset form
+      setFormData({
+        fullname: "",
+        email: "",
+        address: "",
+        city: "",
+        postalcode: "",
+        country: "",
+      });
+
+      // Step 2: Close main modal first
       setShowSuccessModal(true);
+      onClose();
+
+      // Step 3: Delay a bit and then show success modal
+      // setTimeout(() => {
+      // }, 300); // 300ms delay
     }
   };
 
@@ -280,7 +294,7 @@ const CheckoutModal = ({ isOpen, onClose, product }) => {
                 >
                   {isLoading ? (
                     <>
-                      <span className="opacity-0">Complete Order</span>
+                      <span className="opacity-0">Join Whitelist</span>
                       <svg
                         className="animate-spin h-5 w-5 text-white absolute inset-0 m-auto"
                         xmlns="http://www.w3.org/2000/svg"
@@ -303,7 +317,7 @@ const CheckoutModal = ({ isOpen, onClose, product }) => {
                       </svg>
                     </>
                   ) : (
-                    "Complete Order"
+                    "Join Whitelist"
                   )}
                 </button>
               </div>
@@ -311,16 +325,6 @@ const CheckoutModal = ({ isOpen, onClose, product }) => {
           </div>
         </div>
       </div>
-
-      {showSuccessModal && (
-        <SuccessModal
-          isOpen={showSuccessModal}
-          onClose={() => {
-            setShowSuccessModal(false);
-            onClose();
-          }}
-        />
-      )}
     </>
   );
 };
