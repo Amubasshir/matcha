@@ -42,8 +42,35 @@ export const SupabaseProvider = ({ children }) => {
     }
   };
 
+  const orderRequestData = async (formData) => {
+    if (!supabase) {
+      return { success: false, error: "Supabase client not initialized" };
+    }
+
+    // Data mapping for order_waitlist table
+    const waitlistEntry = {
+      name: formData.name || "",
+      email: formData.email || "",
+      number: formData.number || "",
+      // message: formData.message || "",
+    };
+
+    // Insert into Supabase table: order_waitlist
+    const { data, error } = await supabase
+      .from("order_waitlist")
+      .insert([waitlistEntry]);
+
+    if (error) {
+      return { success: false, error: error.message };
+    }
+
+    return { success: true, data };
+  };
+
   return (
-    <SupabaseContext.Provider value={{ supabase, saveOrder, isLoading }}>
+    <SupabaseContext.Provider
+      value={{ supabase, saveOrder, isLoading, orderRequestData }}
+    >
       {children}
     </SupabaseContext.Provider>
   );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
-import SuccessModal from "./SuccessModal";
 import { useSupabase } from "../Context/supabaeContext";
 
 const CheckoutModal = ({ isOpen, onClose, product, setShowSuccessModal }) => {
@@ -56,7 +55,7 @@ const CheckoutModal = ({ isOpen, onClose, product, setShowSuccessModal }) => {
       // order_date: new Date().toISOString(),
     };
 
-    const { success } = await saveOrder(orderData);
+    const { success } = await saveOrder(5);
     if (success) {
       // Step 1: Reset form
       setFormData({
@@ -294,7 +293,7 @@ const CheckoutModal = ({ isOpen, onClose, product, setShowSuccessModal }) => {
                 >
                   {isLoading ? (
                     <>
-                      <span className="opacity-0">Join Whitelist</span>
+                      <span className="opacity-0">Pay Now</span>
                       <svg
                         className="animate-spin h-5 w-5 text-white absolute inset-0 m-auto"
                         xmlns="http://www.w3.org/2000/svg"
@@ -317,7 +316,7 @@ const CheckoutModal = ({ isOpen, onClose, product, setShowSuccessModal }) => {
                       </svg>
                     </>
                   ) : (
-                    "Join Whitelist"
+                    "Pay Now"
                   )}
                 </button>
               </div>
