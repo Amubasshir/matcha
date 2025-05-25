@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CheckCircle, X } from "lucide-react";
 import { useSupabase } from "@/Context/supabaeContext";
+import toast from "react-hot-toast";
 
 const SuccessModal = ({ isOpen, onClose }) => {
   const { orderRequestData, isLoading } = useSupabase();
@@ -52,9 +53,9 @@ const SuccessModal = ({ isOpen, onClose }) => {
       onClose();
 
       // Optional: Success alert
-      alert("You have been added to the waitlist!");
+      toast.success("You have been added to the waitlist!");
     } else {
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
   return (
