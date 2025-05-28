@@ -1,13 +1,26 @@
-import React from "react";
-import image1 from "../assets/lovable-uploads/3.png";
-import { ArrowDown } from "lucide-react";
-import { Button } from "./ui/button";
+import { ArrowDown } from 'lucide-react';
+import image1 from '../assets/lovable-uploads/3.png';
+import { Button } from './ui/button';
+
+const scrollToWhyActNow = () => {
+  const element = document.getElementById('why-act-now');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const HowWorks = () => {
+  const scrollToWhyActNow = () => {
+    const element = document.getElementById('why-act-now');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const steps = [
     {
-      step: "Step 1 of what to do",
+      step: 'Step 1 of what to do',
       title:
-        "Pizza is a popular Italian dish with dough, tomato sauce, cheese, and toppings—baked to perfection and loved by all ages.",
+        'Pizza is a popular Italian dish with dough, tomato sauce, cheese, and toppings—baked to perfection and loved by all ages.',
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image1,
@@ -30,7 +43,7 @@ const HowWorks = () => {
             <div
               key={index}
               className={`flex flex-col md:flex-row ${
-                isImageRight ? "md:flex-row-reverse" : ""
+                isImageRight ? 'md:flex-row-reverse' : ''
               }  items-center gap-8 mb-20 animate-fade-in`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -51,8 +64,11 @@ const HowWorks = () => {
                 <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-green-900 to-green-500 bg-clip-text text-transparent">
                   {step.title}
                 </h2>
-                <p className="text-gray-600 mb-6">{step.description}</p>
-                <Button className="bg-[#035718] text-white hover:bg-[#459843] shadow-sm transition-transform hover:scale-105 duration-300 group">
+                <p className="text-gray-600 mb-6">{step.description}</p>{' '}
+                <Button
+                  onClick={scrollToWhyActNow}
+                  className="bg-[#035718] text-white hover:bg-[#459843] shadow-sm transition-transform hover:scale-105 duration-300 group"
+                >
                   Learn more
                   <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
                 </Button>

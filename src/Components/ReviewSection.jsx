@@ -1,62 +1,61 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/autoplay";
-import { Autoplay } from "swiper/modules";
+import { Card, CardContent } from '@/components/ui/card';
+import { Star } from 'lucide-react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const ReviewsSection = () => {
   const reviews = [
     {
       id: 1,
-      name: "John Doe",
-      image: "https://i.pravatar.cc/150?img=1",
+      name: 'John Doe',
+      image: 'https://i.pravatar.cc/150?img=1',
       rating: 5,
-      date: "May 15, 2025",
+      date: 'May 15, 2025',
       comment:
-        "Absolutely loved the Turmeric & Ginger Shot! Felt energized and refreshed.",
+        'Absolutely loved the Turmeric & Ginger Shot! Felt energized and refreshed.',
     },
     {
       id: 2,
-      name: "Glenstar",
-      image: "https://i.pravatar.cc/150?img=2",
+      name: 'Glenstar',
+      image: 'https://i.pravatar.cc/150?img=2',
       rating: 5,
-      date: "May 18, 2025",
-      comment: "Great taste and very effective. Would recommend it to anyone!",
+      date: 'May 18, 2025',
+      comment: 'Great taste and very effective. Would recommend it to anyone!',
     },
     {
       id: 3,
-      name: "Franco",
-      image: "https://i.pravatar.cc/150?img=3",
+      name: 'Franco',
+      image: 'https://i.pravatar.cc/150?img=3',
       rating: 5,
-      date: "May 20, 2025",
+      date: 'May 20, 2025',
       comment:
-        "Felt a noticeable improvement in digestion. Highly recommended!",
+        'Felt a noticeable improvement in digestion. Highly recommended!',
     },
     {
       id: 4,
-      name: "David",
-      image: "https://i.pravatar.cc/150?img=4",
+      name: 'David',
+      image: 'https://i.pravatar.cc/150?img=4',
       rating: 5,
-      date: "May 20, 2025",
-      comment: "Tastes amazing and works wonders. I feel more active now!",
+      date: 'May 20, 2025',
+      comment: 'Tastes amazing and works wonders. I feel more active now!',
     },
     {
       id: 5,
-      name: "Emily",
-      image: "https://i.pravatar.cc/150?img=5",
+      name: 'Emily',
+      image: 'https://i.pravatar.cc/150?img=5',
       rating: 5,
-      date: "May 22, 2025",
-      comment: "My daily go-to for wellness. Loved it!",
+      date: 'May 22, 2025',
+      comment: 'My daily go-to for wellness. Loved it!',
     },
     {
       id: 6,
-      name: "Rajib",
-      image: "https://i.pravatar.cc/150?img=6",
+      name: 'Rajib',
+      image: 'https://i.pravatar.cc/150?img=6',
       rating: 5,
-      date: "May 23, 2025",
-      comment: "Amazing product with real results. 10/10",
+      date: 'May 23, 2025',
+      comment: 'Amazing product with real results. 10/10',
     },
   ];
 
@@ -114,8 +113,8 @@ const ReviewsSection = () => {
                         size={16}
                         className={
                           i < review.rating
-                            ? "fill-yellow-400"
-                            : "fill-gray-300"
+                            ? 'fill-yellow-400'
+                            : 'fill-gray-300'
                         }
                       />
                     ))}
@@ -129,9 +128,9 @@ const ReviewsSection = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="text-center mt-4">
+      {/* <div className="text-center mt-4">
         <button className=" btn btn-primary">Write a review!</button>
-      </div>
+      </div> */}
     </div>
   );
 };

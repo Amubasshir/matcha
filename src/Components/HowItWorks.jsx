@@ -1,30 +1,36 @@
-import { Button } from "./ui/button";
-import { ArrowDown } from "lucide-react";
-import image1 from "../assets/lovable-uploads/1.png";
-import image2 from "../assets/lovable-uploads/2.png";
-import image3 from "../assets/lovable-uploads/3.png";
+import { ArrowDown } from 'lucide-react';
+import image1 from '../assets/lovable-uploads/1.png';
+import image2 from '../assets/lovable-uploads/2.png';
+import image3 from '../assets/lovable-uploads/3.png';
+import { Button } from './ui/button';
 const HowItWorks = () => {
+  const scrollToWhyActNow = () => {
+    const element = document.getElementById('why-act-now');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const steps = [
     {
-      step: "Step 1 of what to do",
+      step: 'Step 1 of what to do',
       title:
-        "How to use the product to achieve that goal and what benefit it brings",
+        'How to use the product to achieve that goal and what benefit it brings',
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image1,
     },
     {
-      step: "Step 2 of what to do",
+      step: 'Step 2 of what to do',
       title:
-        "How to use the product to achieve that goal and what benefit it brings",
+        'How to use the product to achieve that goal and what benefit it brings',
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image2,
     },
     {
-      step: "Step 3 of what to do",
+      step: 'Step 3 of what to do',
       title:
-        "How to use the product to achieve that goal and what benefit it brings",
+        'How to use the product to achieve that goal and what benefit it brings',
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image3,
@@ -41,7 +47,6 @@ const HowItWorks = () => {
             "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2070&q=80')",
         }}
       ></div> */}
-
       {/* Content */}
       <div className="px-4 md:px-8 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -58,7 +63,7 @@ const HowItWorks = () => {
             <div
               key={index}
               className={`flex flex-col md:flex-row ${
-                isImageRight ? "md:flex-row-reverse" : ""
+                isImageRight ? 'md:flex-row-reverse' : ''
               } items-center gap-8 mb-20 animate-fade-in`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -88,11 +93,12 @@ const HowItWorks = () => {
             </div>
           );
         })}
-      </div>
+      </div>{' '}
       {/* CTA Section based on the provided image */}
       <div
+        id="why-act-now"
         className="mt-16 bg-[#37855269] rounded-xl p-10 shadow-md animate-fade-in"
-        style={{ animationDelay: "0.6s" }}
+        style={{ animationDelay: '0.6s' }}
       >
         <div className="max-w-3xl mx-auto text-center ">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">

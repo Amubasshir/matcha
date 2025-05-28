@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { Search, ShoppingBag, Menu, X, Leaf } from "lucide-react";
-import { useCart } from "../context/CartContext";
-import logo from "../assets/lovable-uploads/DirZuliebe Logo.png";
+import { Menu, Search, ShoppingBag, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import logo from '../assets/lovable-uploads/DirZuliebe Logo.png';
+import { useCart } from '../context/CartContext';
 const Navbar = () => {
   const { getTotalItems } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
     // Handle search functionality
-    console.log("Searching for:", searchValue);
+    console.log('Searching for:', searchValue);
   };
 
   return (
@@ -35,7 +35,7 @@ const Navbar = () => {
       {/* Main navbar */}
       <nav
         className={`relative w-full transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-md py-2" : "bg-white py-4"
+          isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'
         }`}
       >
         <div className="container-custom mx-auto">
@@ -115,7 +115,7 @@ const Navbar = () => {
       </nav>
 
       {/* Category navbar */}
-      <div className="bg-white border-t border-b border-gray-200 shadow-sm">
+      {/* <div className="bg-white border-t border-b border-gray-200 shadow-sm">
         <div className="container-custom mx-auto">
           <div className="hidden lg:flex items-center justify-center space-x-8 py-2">
             <a href="#" className="navbar-style">
@@ -144,7 +144,7 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (

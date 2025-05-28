@@ -1,21 +1,29 @@
-import React, { useState } from "react";
-import { Star, Plus, Minus, Heart, Share2 } from "lucide-react";
-import { useCart } from "../context/CartContext";
-import CheckoutModal from "./CheckoutModal";
-import toast from "react-hot-toast";
-import image1 from "../assets/lovable-uploads/1.png";
-import image2 from "../assets/lovable-uploads/2.png";
-import image3 from "../assets/lovable-uploads/3.png";
-import SuccessModal from "./SuccessModal";
+import {
+  Facebook,
+  Instagram,
+  Minus,
+  Plus,
+  Share2,
+  Star,
+  Twitter,
+} from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import toast from 'react-hot-toast';
+import image1 from '../assets/lovable-uploads/1.png';
+import image2 from '../assets/lovable-uploads/2.png';
+import image3 from '../assets/lovable-uploads/3.png';
+import { useCart } from '../context/CartContext';
+import CheckoutModal from './CheckoutModal';
+import SuccessModal from './SuccessModal';
 const PRODUCT = {
   id: 1,
-  name: "Strawberry Oat Matcha Latte",
+  name: 'Strawberry Oat Matcha Latte',
   price: 24.95,
   description:
-    "Meet your go-to strawberry matcha latte, perfectly chilled and ready to fuel your day. Made with ceremonial-grade matcha from the foothills of Japan and velvety gluten-free oat milk, this balanced blend delivers a natural, smooth boost (contains 50mg caffeine—equivalent to 1 shot of espresso).",
+    'Meet your go-to strawberry matcha latte, perfectly chilled and ready to fuel your day. Made with ceremonial-grade matcha from the foothills of Japan and velvety gluten-free oat milk, this balanced blend delivers a natural, smooth boost (contains 50mg caffeine—equivalent to 1 shot of espresso).',
   details:
-    "Naturally sweetened with agave, it contains no refined sugar, artificial sweeteners, or synthetic caffeine.",
-  additionalInfo: "12 cans per case",
+    'Naturally sweetened with agave, it contains no refined sugar, artificial sweeteners, or synthetic caffeine.',
+  additionalInfo: '12 cans per case',
   image: image1,
   // "https://images.pexels.com/photos/5946081/pexels-photo-5946081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   thumbnails: [
@@ -31,11 +39,11 @@ const PRODUCT = {
   reviews: 124,
   inStock: true,
   features: [
-    "Ceremonial-grade matcha",
-    "Gluten-free oat milk",
-    "50mg natural caffeine",
-    "No artificial sweeteners",
-    "Vegan-friendly",
+    'Ceremonial-grade matcha',
+    'Gluten-free oat milk',
+    '50mg natural caffeine',
+    'No artificial sweeteners',
+    'Vegan-friendly',
   ],
 };
 
@@ -45,6 +53,54 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(PRODUCT.image);
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
+  const shareMenuRef = useRef(null);
+
+  // Close share menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        shareMenuRef.current &&
+        !shareMenuRef.current.contains(event.target)
+      ) {
+        setIsShareMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleShare = (platform) => {
+    const url = window.location.href;
+    const text = `Check out this amazing ${PRODUCT.name}!`;
+
+    let shareUrl = '';
+    switch (platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          url
+        )}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          text
+        )}&url=${encodeURIComponent(url)}`;
+        break;
+      case 'instagram':
+        // Instagram doesn't have a direct share URL, so we'll copy the link to clipboard
+        navigator.clipboard.writeText(url);
+        toast.success('Link copied! You can now share it on Instagram');
+        setIsShareMenuOpen(false);
+        return;
+    }
+
+    // Open share dialog in a new window
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+      setIsShareMenuOpen(false);
+    }
+  };
 
   const incrementQuantity = () => setQuantity((prev) => prev + 1);
   const decrementQuantity = () =>
@@ -101,8 +157,8 @@ const ProductDetail = () => {
                 onClick={() => setSelectedImage(thumb)}
                 className={`flex-shrink-0 h-20 w-20 rounded-md overflow-hidden border-2 transition-all ${
                   selectedImage === thumb
-                    ? "border-teal-500 shadow-md"
-                    : "border-gray-200"
+                    ? 'border-teal-500 shadow-md'
+                    : 'border-gray-200'
                 }`}
               >
                 <img
@@ -121,15 +177,10 @@ const ProductDetail = () => {
               {PRODUCT.name}
             </h1>
             <div className="flex items-center mb-4">
+              {' '}
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    fill={
-                      i < Math.floor(PRODUCT.rating) ? "currentColor" : "none"
-                    }
-                    className="w-4 h-4"
-                  />
+                  <Star key={i} fill="currentColor" className="w-4 h-4" />
                 ))}
               </div>
               <span className="ml-2 text-sm text-gray-600">
@@ -181,14 +232,44 @@ const ProductDetail = () => {
             </div>
 
             <div className="flex items-center space-x-6 pt-2">
-              <button className="flex items-center text-gray-500 hover:text-teal-700 transition-colors">
+              {/* <button className="flex items-center text-gray-500 hover:text-teal-700 transition-colors">
                 <Heart size={20} className="mr-1" />
                 <span className="text-sm">Add to Wishlist</span>
-              </button>
-              <button className="flex items-center text-gray-500 hover:text-teal-700 transition-colors">
-                <Share2 size={20} className="mr-1" />
-                <span className="text-sm">Share</span>
-              </button>
+              </button> */}{' '}
+              <div className="relative">
+                <button
+                  onClick={() => setIsShareMenuOpen(!isShareMenuOpen)}
+                  className="flex items-center text-gray-500 hover:text-teal-700 transition-colors"
+                >
+                  <Share2 size={20} className="mr-1" />
+                  <span className="text-sm">Share</span>
+                </button>
+
+                {isShareMenuOpen && (
+                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 space-y-2">
+                    <button
+                      onClick={() => handleShare('facebook')}
+                      className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 rounded-md transition-colors"
+                    >
+                      <Facebook size={16} className="mr-2" />
+                      Facebook
+                    </button>
+                    <button
+                      onClick={() => handleShare('instagram')}
+                      className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 rounded-md transition-colors"
+                    >
+                      <Instagram size={16} className="mr-2" />
+                      Instagram
+                    </button>
+                    <button
+                      onClick={() => handleShare('twitter')}
+                      className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-teal-50 rounded-md transition-colors"
+                    >
+                      <Twitter size={16} className="mr-2" />X (Twitter)
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
