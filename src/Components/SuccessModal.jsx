@@ -31,7 +31,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
       newErrors.email = "Email is invalid";
     }
 
-    if (!formData.number.trim()) newErrors.number = "Phone Number is required";
+    // if (!formData.number.trim()) newErrors.number = "Phone Number is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -150,7 +150,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
                     htmlFor="number"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Phone Number <span className="text-red-500">*</span>
+                    Phone Number
                   </label>
                   <input
                     type="number"
@@ -158,13 +158,14 @@ const SuccessModal = ({ isOpen, onClose }) => {
                     name="number"
                     value={formData.number}
                     onChange={handleChange}
-                    className={`mt-1 input ${
-                      errors.number ? "border-red-500 ring-red-500" : ""
-                    }`}
+                    className="mt-1 input"
+                    // className={`mt-1 input ${
+                    //   errors.number ? "border-red-500 ring-red-500" : ""
+                    // }`}
                   />
-                  {errors.number && (
+                  {/* {errors.number && (
                     <p className="mt-1 text-sm text-red-500">{errors.number}</p>
-                  )}
+                  )} */}
                 </div>
               </div>
               {/* Close Button */}

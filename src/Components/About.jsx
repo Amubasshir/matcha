@@ -1,9 +1,9 @@
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"; // ensure alias is working
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/Components/ui/tabs"; // ensure alias is working
 
 const About = () => {
   return (
-    <div className="px-4 sm:px-6 lg:px-8 ">
+    <div className="px-4 sm:px-6 lg:px-8 max-w-[970px] mx-auto">
       <div>
         <h2 className="text-xl py-5 text-green-600">About the product</h2>
         <p>

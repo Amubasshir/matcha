@@ -1,36 +1,37 @@
-import { ArrowDown } from 'lucide-react';
-import image1 from '../assets/lovable-uploads/1.png';
-import image2 from '../assets/lovable-uploads/2.png';
-import image3 from '../assets/lovable-uploads/3.png';
-import { Button } from './ui/button';
-const HowItWorks = () => {
+import { ArrowDown } from "lucide-react";
+import image1 from "../assets/lovable-uploads/1.png";
+import image2 from "../assets/lovable-uploads/2.png";
+import image3 from "../assets/lovable-uploads/3.png";
+import { Button } from "./ui/button";
+const HowItWorks = ({ setShowSuccessModal, onClose }) => {
   const scrollToWhyActNow = () => {
-    const element = document.getElementById('why-act-now');
+    const element = document.getElementById("why-act-now");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   const steps = [
     {
-      step: 'Step 1 of what to do',
+      step: "Step 1 of what to do",
       title:
-        'How to use the product to achieve that goal and what benefit it brings',
+        "How to use the product to achieve that goal and what benefit it brings",
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image1,
     },
     {
-      step: 'Step 2 of what to do',
+      step: "Step 2 of what to do",
       title:
-        'How to use the product to achieve that goal and what benefit it brings',
+        "How to use the product to achieve that goal and what benefit it brings",
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image2,
     },
     {
-      step: 'Step 3 of what to do',
+      step: "Step 3 of what to do",
       title:
-        'How to use the product to achieve that goal and what benefit it brings',
+        "How to use the product to achieve that goal and what benefit it brings",
       description:
         "Help people imagine the benefits they'll get at this stage.",
       image: image3,
@@ -63,7 +64,7 @@ const HowItWorks = () => {
             <div
               key={index}
               className={`flex flex-col md:flex-row ${
-                isImageRight ? 'md:flex-row-reverse' : ''
+                isImageRight ? "md:flex-row-reverse" : ""
               } items-center gap-8 mb-20 animate-fade-in`}
               style={{ animationDelay: `${index * 0.2}s` }}
             >
@@ -85,7 +86,10 @@ const HowItWorks = () => {
                   {step.title}
                 </h2>
                 <p className="text-gray-600 mb-6">{step.description}</p>
-                <Button className="bg-[#035718] text-white hover:bg-[#459843] shadow-sm  transition-transform hover:scale-105 duration-300 group">
+                <Button
+                  onClick={scrollToWhyActNow}
+                  className="bg-[#035718] text-white hover:bg-[#459843] shadow-sm  transition-transform hover:scale-105 duration-300 group"
+                >
                   Learn more
                   <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
                 </Button>
@@ -93,12 +97,12 @@ const HowItWorks = () => {
             </div>
           );
         })}
-      </div>{' '}
+      </div>{" "}
       {/* CTA Section based on the provided image */}
-      <div
+      {/* <div
         id="why-act-now"
         className="mt-16 bg-[#37855269] rounded-xl p-10 shadow-md animate-fade-in"
-        style={{ animationDelay: '0.6s' }}
+        style={{ animationDelay: "0.6s" }}
       >
         <div className="max-w-3xl mx-auto text-center ">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
@@ -108,11 +112,15 @@ const HowItWorks = () => {
             Some reasons why and shouldn't think too much why they need it. Use
             with strong CTA encouraging immediate action.
           </p>
-          <Button className="bg-[#035718] text-white hover:bg-[#459843] shadow-sm transition-transform hover:scale-105 duration-300 text-lg font-medium rounded-lg">
-            Get Started
+          <Button
+            // onClick={scrollToWhyActNow}
+            onClick={() => setShowSuccessModal()}
+            className="bg-[#035718] text-white hover:bg-[#459843] shadow-sm transition-transform hover:scale-105 duration-300 text-lg font-medium rounded-lg"
+          >
+            Join the waitlist
           </Button>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

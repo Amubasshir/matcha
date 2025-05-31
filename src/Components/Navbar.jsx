@@ -1,28 +1,28 @@
-import { Menu, Search, ShoppingBag, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import logo from '../assets/lovable-uploads/DirZuliebe Logo.png';
-import { useCart } from '../context/CartContext';
+import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import logo from "../assets/lovable-uploads/DirZuliebe Logo.png";
+import { useCart } from "../Context/CartContext";
 const Navbar = () => {
   const { getTotalItems } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
     // Handle search functionality
-    console.log('Searching for:', searchValue);
+    console.log("Searching for:", searchValue);
   };
 
   return (
@@ -35,7 +35,7 @@ const Navbar = () => {
       {/* Main navbar */}
       <nav
         className={`relative w-full transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'
+          isScrolled ? "bg-white shadow-md py-2" : "bg-white py-4"
         }`}
       >
         <div className="container-custom mx-auto">
