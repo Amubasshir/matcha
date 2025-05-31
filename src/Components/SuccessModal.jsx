@@ -153,7 +153,6 @@ const SuccessModal = ({ isOpen, onClose }) => {
                     Phone Number
                   </label>
                   <input
-                    type="number"
                     id="number"
                     name="number"
                     value={formData.number}
